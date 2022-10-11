@@ -10,9 +10,18 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
-
+  
+  <PropertyGroup Label="Sufficit Versioning">
+    <VersionSuffix>1.$([System.DateTime]::UtcNow.ToString(yy)).$([System.DateTime]::UtcNow.ToString(MMdd)).$([System.DateTime]::UtcNow.ToString(HHmm))</VersionSuffix>
+    <AssemblyVersion Condition=" '$(VersionSuffix)' == '' ">1.0.0.0</AssemblyVersion>
+    <AssemblyVersion Condition=" '$(VersionSuffix)' != '' ">$(VersionSuffix)</AssemblyVersion>
+    <Version Condition=" '$(VersionSuffix)' == '' ">0.0.1.0</Version>
+    <Version Condition=" '$(VersionSuffix)' != '' ">$(VersionSuffix)</Version>
+  </PropertyGroup>
+  
   <PropertyGroup>
-    <Version>6.0.17</Version>
+    <Name>Sufficit MudBlazor</Name>
+    <PackageId>Sufficit.MudBlazor</PackageId>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageIcon>Nuget.png</PackageIcon>
     <Company>MudBlazor</Company>
@@ -21,7 +30,7 @@
     <PackageTags>Blazor, MudBlazor, Material, Material Design, Components, Blazor Components, Blazor Library</PackageTags>
     <Description>MudBlazor is an ambitious Material Design component framework for Blazor with an emphasis on ease of use and clear structure. It is perfect for .NET developers who want to rapidly build web applications without having to struggle with CSS and Javascript. MudBlazor, being written entirely in C#, empowers them to adapt, fix or extend the framework and the multitude of examples in the documentation makes learning MudBlazor very easy.</Description>
     <PackageProjectUrl>http://mudblazor.com/</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/MudBlazor/MudBlazor</RepositoryUrl>
+    <RepositoryUrl>https://github.com/sufficit/sufficit-mudblazor.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
   </PropertyGroup>
   
