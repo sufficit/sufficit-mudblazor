@@ -23,11 +23,11 @@ jobs:
       
     - name: Build
       working-directory: ./src
-      run: dotnet build --configuration Packing
+      run: dotnet build --configuration Production
       
     - name: Deploy Package 
       working-directory: ./src
-      run: dotnet pack --configuration Packing --output ./nupkgs
+      run: dotnet pack --configuration Production --output ./nupkgs
     
     - name: Publish to Nuget.Org
       working-directory: ./src
